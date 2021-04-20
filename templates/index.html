@@ -1,0 +1,23 @@
+{% extends 'inc/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <legend class="mb-3">
+        <h2 class="d-inline mr-3">{{ title }}</h2>
+        {% if title == 'New questions' %}
+            <a href="{% url 'hot' %}">Hot Questions</a>
+        {% endif %}
+        {% if title == 'Hot questions' %}
+            <a href="{% url 'index' %}">New Questions</a>
+        {% endif %}
+    </legend>
+
+    {% for question in questions %}
+        {% include 'inc/question_base.html' %}
+    {% endfor %}
+
+    {% include 'inc/paginator.html' with page=questions %}
+
+{% endblock content %}

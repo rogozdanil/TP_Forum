@@ -1,0 +1,20 @@
+{% extends 'inc/question_base.html' %}
+
+{% load static %}
+
+{% block question-raiting %}
+    <span>{{ answer.rating }}</span>
+{% endblock question-raiting %}
+
+{% block question-text %}
+    <div class="mb-2 mt-n2">
+        <span class="mr-2 text-black-50">{{ answer.author }}</span>
+        <span class="text-black-50">{{ answer.date }}</span>
+    </div>
+    <p>{{ answer.text }}</p>
+{% endblock question-text %}
+
+{% block question-info %}
+    <input class="form-check-input ml-3" type="checkbox" id="answerCheck">
+    <label class="form-check-label ml-5" for="answerCheck">Correct!</label>
+{% endblock question-info %}

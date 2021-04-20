@@ -1,0 +1,25 @@
+{% extends 'inc/question_base.html' %}
+
+{% load static %}
+
+{% block question-avatar %}
+    <img src="{% static "img/quest.jpg" %}" height="150px" width="150px" class="align-self-start mr-2 rounded-sm"
+         alt="...">
+{% endblock question-avatar %}
+
+{% block question-text %}
+    <h5 class="mt-0">{{ question.title }}</h5>
+    <div class="mb-2 mt-n2">
+        <span class="mr-2 text-black-50">{{ question.author }}</span>
+        <span class="text-black-50">{{ question.date }}</span>
+    </div>
+    <p>{{ question.text }}</p>
+{% endblock question-text %}
+
+{% block question-info %}
+    <span>Tags:
+        {% for tag in question.all_tags %}
+            <a href="{% url 'tag' tag=tag %}">{{ tag }}</a>
+        {% endfor %}
+    </span>
+{% endblock question-info %}
